@@ -1,0 +1,14 @@
+1. Создали два класса для работы с данными:
+   - Less_27_SerialVersionUID_Write_Step1 - для сериализации;
+   - Less_27_SerialVersionUID_Read_Step2 - для десериализации;
+2. Создали три пакета:
+   - DirForSerialization - тут будет храниться наш файл *.bin с сериализованым объектом;
+   - MyClasses - два класса с WorkerVer1 и WorkerVer2, которые имитируют изменение
+                 сериализуемого в дальнейшем класса Worker;
+   - SerializedClass - сюда мы просто подставляем одну из версий класса Worker перед отправкой
+                       в файл *.bin, а затем делаем обратную подстановку, что бы имитировать
+                       смену структуры класса и поймать ошибку:
+
+" Exception in thread "main" java.lang.RuntimeException: java.io.InvalidClassException:
+Less_27_ch_3_SerialVersionUID.SerializedClass.Worker; local class incompatible: stream
+classdesc serialVersionUID = 2, local class serialVersionUID = 1 "
